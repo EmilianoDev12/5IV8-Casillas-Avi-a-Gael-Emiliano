@@ -10,6 +10,10 @@ function validar(e){
     return patron.test(prueba);
 }
 
+function limpiar(){
+    location.reload();
+}
+
 function pasar(n){
     let rs = "";
     while(n != 0){
@@ -57,6 +61,7 @@ function traducir(){
 }
 
 function calcular(){
+    document.getElementById("data").remove;
     let p, s, t, c
     let pr, sr, tr, cr;
     let n, sub, hosts;
