@@ -61,7 +61,7 @@ function traducir(){
 }
 
 function calcular(){
-    document.getElementById("data").remove;
+    
     let p, s, t, c
     let pr, sr, tr, cr;
     let n, sub, hosts;
