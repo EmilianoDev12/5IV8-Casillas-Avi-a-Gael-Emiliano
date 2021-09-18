@@ -25,5 +25,36 @@
             <input type="button" value="Traducir" onclick="traducir()">
         </form>
     </div>
+    <br>
+    <hr>
+    <br>
+    <div class="dos">
+        <form method="post" name="dos">
+            <label>Calculadora de subredes:</label>
+            <p>
+                <label>Ip:</label>
+                <input name="p" type="text" onkeypress="return validar(event)">.<input name="s" type="text" onkeypress="return validar(event)">.
+                <input name="t" type="text" onkeypress="return validar(event)">.<input name="c" type="text" onkeypress="return validar(event)">
+            </p>
+            <p>
+                <label>Cantidad de subredes:</label>
+                <input name="subredes" type="text" onkeypress="return validar(event)">
+            </p>
+            <input type="button" value="Calcular" onclick="calcular()">
+            <br>
+            <br>
+            <table border="1">
+                <thead>
+                    <td>Ip original</td>
+                    <td>Mascara</td>
+                    <td>Hosts</td>
+                    <td>Salto de red</td>
+                </thead>
+                <tbody name="data" id="data">
+
+                </tbody>
+            </table>
+        </form>
+    </div>
 </body>
 </html>

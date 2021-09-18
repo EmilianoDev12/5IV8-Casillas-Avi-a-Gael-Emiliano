@@ -1,3 +1,5 @@
+let m, salto;
+
 function validar(e){
     var teclado = (document.all)?e.keyCode:e.which;
     if(teclado == 8)return true;
@@ -25,7 +27,8 @@ function pasar(n){
 }
 
 function traducir(){
-    let p, s, t, c, pr, sr, tr, cr;
+    let p, s, t, c
+    let pr, sr, tr, cr;
     p = document.uno.p.value;
     s = document.uno.s.value;
     t = document.uno.t.value;
@@ -38,6 +41,11 @@ function traducir(){
     if(s == "") s = 0;
     if(t == "") t = 0;
     if(c == "") c = 0;
+    if(p > 255 || s > 255 || t > 255 || c > 255){
+        alert("Valor de ip incorrecto")
+    }else{
+
+    }
     pr = pasar(p);
     sr = pasar(s);
     tr = pasar(t);
@@ -47,3 +55,90 @@ function traducir(){
     document.uno.tr.value = tr;
     document.uno.cr.value = cr;
 }
+
+function calcular(){
+    let p, s, t, c
+    let pr, sr, tr, cr;
+    let n, sub, hosts;
+    let m1, m2, m3, m4;
+    let tipo;
+    p = document.dos.p.value;
+    s = document.dos.s.value;
+    t = document.dos.t.value;
+    c = document.dos.c.value;
+    sub = document.dos.subredes.value;
+    salto = 0;
+    pr = "";
+    sr = "";
+    tr = "";
+    cr = "";
+    if(p == "") p = 0;
+    if(s == "") s = 0;
+    if(t == "") t = 0;
+    if(c == "") c = 0;
+    pr = pasar(p);
+    sr = pasar(s);
+    tr = pasar(t);
+    cr = pasar(c);
+
+    if(p <= 127){
+        m1 = "11111111";
+        m2 = "00000000";
+        m3 = "00000000";
+        m4 = "00000000";
+        tipo = "a";
+        m = 16;
+    }
+    if(p > 127 && p <= 191){
+        m1 = "11111111";
+        m2 = "11111111";
+        m3 = "00000000";
+        m4 = "00000000";
+        tipo = "b";
+        m = 8;
+    }
+    if(p > 191&& p <= 223){
+        m1 = "11111111";
+        m2 = "11111111";
+        m3 = "11111111";
+        m4 = "00000000";
+        tipo = "c";
+        m = 0;
+    }
+
+    sub = parseInt(sub);
+    n = 0, salto = 0;
+    while(Math.pow(2, n) < sub){
+        n++;
+    }
+    if(tipo == "a"){
+        m2 = procesar(n);
+    }else if(tipo == "b"){
+        m3 = procesar(n);
+    }else{
+        m4 = procesar(n);
+    }
+    hosts = Math.pow(2, m) - 2;
+
+    let imprimir = "<tr><td>"+pr+"."+sr+"."+tr+"."+cr+"</td><td>"+
+    m1+"."+m2+"."+m3+"."+m4+"</td><td>"+hosts+"</td><td>"+salto+"</td>";
+    let btn = document.createElement("tr");
+    btn.innerHTML = imprimir;
+    document.getElementById("data").appendChild(btn);
+}
+
+function procesar(n){
+    let res = "", potencia = 7;
+    for(let i=0;i<n;i++){
+        res += "1";
+        salto += Math.pow(2, potencia);
+        potencia--;
+    }
+    salto = 256 - salto;
+    while(res.length < 8){
+        res += "0";
+        m++;
+    }
+    return res;
+}
+
