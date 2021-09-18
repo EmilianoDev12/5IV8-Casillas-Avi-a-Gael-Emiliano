@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/masterstyle.css">
+    <title>Programas de subneteo</title>
+    <script src="./problemasJs.js"></script>
+</head>
+<body>
+    <div class="uno">
+        <form method="post" name="uno">
+            <label>Traductor ip a binario:</label>
+            <p>
+                <label>Input:</label>
+                <input name="p" type="text" onkeypress="return validar(event)">.<input name="s" type="text" onkeypress="return validar(event)">.
+                <input name="t" type="text" onkeypress="return validar(event)">.<input name="c" type="text" onkeypress="return validar(event)">
+            </p>
+            <p>
+                <label>Output:</label>
+                <input name="pr" type="text" onkeypress="return validar(event)" readonly>.<input name="sr" type="text" onkeypress="return validar(event)" readonly>.
+                <input name="tr" type="text" onkeypress="return validar(event)" readonly>.<input name="cr" type="text" onkeypress="return validar(event)" readonly>
+            </p>
+            <input type="button" value="Traducir" onclick="traducir()">
+        </form>
+    </div>
+</body>
+</html>
