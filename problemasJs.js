@@ -61,6 +61,7 @@ function calcular(){
     let pr, sr, tr, cr;
     let n, sub, hosts;
     let m1, m2, m3, m4;
+    let w = 0;
     let tipo;
     p = document.dos.p.value;
     s = document.dos.s.value;
@@ -113,18 +114,47 @@ function calcular(){
     }
     if(tipo == "a"){
         m2 = procesar(n);
+
+        for(let i=0;i<sub;i++){
+            let a = "";
+            a += "<tr><td>"+pr+"."+ pasar(w) + "." + tr + "." + cr + "</td></tr>";
+            w += salto;
+            let ntb = document.createElement("tr");
+            ntb.innerHTML = a;
+            document.getElementById("sub").appendChild(ntb);
+        }
     }else if(tipo == "b"){
         m3 = procesar(n);
+
+        for(let i=0;i<sub;i++){
+            let a = "";
+            a += "<tr><td>"+pr+"."+ sr + "." + pasar(w) + "." + cr + "</td></tr>";
+            w += salto;
+            let ntb = document.createElement("tr");
+            ntb.innerHTML = a;
+            document.getElementById("sub").appendChild(ntb);
+        }
     }else{
         m4 = procesar(n);
+
+        let a = "";
+        for(let i=0;i<sub;i++){
+            let a = "";
+            a += "<tr><td>"+pr+"."+ sr + "." + tr + "." + pasar(w) + "</td></tr>";
+            w += salto;
+            let ntb = document.createElement("tr");
+            ntb.innerHTML = a;
+            document.getElementById("sub").appendChild(ntb);
+        }
     }
     hosts = Math.pow(2, m) - 2;
 
     let imprimir = "<tr><td>"+pr+"."+sr+"."+tr+"."+cr+"</td><td>"+
-    m1+"."+m2+"."+m3+"."+m4+"</td><td>"+hosts+"</td><td>"+salto+"</td>";
+    m1+"."+m2+"."+m3+"."+m4+"</td><td>"+hosts+"</td><td>"+salto+"</td></tr>";
     let btn = document.createElement("tr");
     btn.innerHTML = imprimir;
     document.getElementById("data").appendChild(btn);
+
 }
 
 function procesar(n){
