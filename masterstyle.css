@@ -1,0 +1,11 @@
+body{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tablas{
+    gap: 2rem;
+    display: flex;
+}

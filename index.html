@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/masterstyle.css">
+    <link rel="stylesheet" href="./masterstyle.css">
     <title>Programas de subneteo</title>
     <script src="./problemasJs.js"></script>
 </head>
@@ -44,25 +44,27 @@
             <input type="button" value="Limpiar" onclick="limpiar()">
             <br>
             <br>
-            <table border="1">
-                <thead>
-                    <td>Ip original</td>
-                    <td>Mascara</td>
-                    <td>Hosts</td>
-                    <td>Salto de red</td>
-                </thead>
-                <tbody name="data" id="data">
+            <div class="tablas">
+                <table border="1">
+                    <thead>
+                        <td>Ip original</td>
+                        <td>Mascara</td>
+                        <td>Hosts</td>
+                        <td>Salto de red</td>
+                    </thead>
+                    <tbody name="data" id="data">
 
-                </tbody>
-            </table>
-            <table border="1">
-                <thead>
-                    <td>Subredes</td>
-                </thead>
-                <tbody name="data" id="sub">
+                    </tbody>
+                </table>
+                <table border="1">
+                    <thead>
+                        <td>Subredes</td>
+                    </thead>
+                    <tbody name="data" id="sub">
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </form>
     </div>
 </body>
